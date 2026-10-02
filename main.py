@@ -1,16 +1,16 @@
-# This is a sample Python script.
-
-# Press Mayús+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+class Reporte:
+    def __init__(self, titulo, contenido):
+        self.titulo = titulo
+        self.contenido = contenido
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
+class GuardadorReporte:
+    def guardar(self, reporte, ruta):
+        with open(ruta, "w", encoding="utf-8") as f:
+            f.write(reporte.titulo + "\n" + reporte.contenido)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+
+titulo = input("Título del reporte: ")
+contenido = input("Contenido: ")
+GuardadorReporte().guardar(Reporte(titulo, contenido), "reporte.txt")
+print("Guardado en reporte.txt")
